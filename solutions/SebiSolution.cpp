@@ -4,6 +4,7 @@
 using namespace std;
 char t[10][10],c[100];
 int n,poz[2][100],npoz;
+
 ifstream f("ine.txt");
 ofstream g("oute.txt");
 void citire()  //se citeste n

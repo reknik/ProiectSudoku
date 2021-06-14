@@ -54,10 +54,10 @@ bool verif(int i,int j)
 
 void back(int i,int j,int k,int l)
 {
+    if(gasit==true)
+            return;
     if(m[k][l]=='0')
     {
-        if(gasit==true)
-            return;
         for(int x=0;x<n*n;x++)
         {
             m[k][l]=v[x];
@@ -72,8 +72,10 @@ void back(int i,int j,int k,int l)
                         {
                             if(i+1>=n)
                             {
-                                gasit==true;
+                                
+                                gasit=true;
                                 afisare();
+                                
                                 return;
                             }
                             else
@@ -101,8 +103,10 @@ void back(int i,int j,int k,int l)
                 {
                     if(i+1>=n)
                     {
-                        gasit==true;
+                        
+                        gasit=true;
                         afisare();
+                        
                         return;
                     }
                     else
@@ -127,5 +131,9 @@ int main()
     back(0,0,0,0);
     end=clock();
     cout<<fixed<<double(end - start) / double(CLOCKS_PER_SEC);
+    if(gasit==false)
+    {
+        g<<"Nu exista solutie";
+    }
     return 0;
 }

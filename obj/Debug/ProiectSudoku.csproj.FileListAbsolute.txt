@@ -1,0 +1,10 @@
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\bin\Debug\ProiectSudoku.exe.config
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\bin\Debug\ProiectSudoku.exe
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\bin\Debug\ProiectSudoku.pdb
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.csproj.AssemblyReference.cache
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.Form1.resources
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.Properties.Resources.resources
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.csproj.GenerateResource.cache
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.csproj.CoreCompileInputs.cache
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.exe
+C:\Users\alexd\source\repos\ProiectSudoku\ProiectSudoku\obj\Debug\ProiectSudoku.pdb
