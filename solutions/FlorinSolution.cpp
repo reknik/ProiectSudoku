@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 
 using namespace std;
 
@@ -36,8 +37,8 @@ void afisare()
 bool verif(int i,int j)
 {
     int i2,j2;
-    for(i2=(i/3)*3;i2<(i/3)*3+3;i2++)
-        for(j2=(j/3)*3;j2<(j/3)*3+3;j2++)
+    for(i2=(i/n)*n;i2<(i/n)*n+n;i2++)
+        for(j2=(j/n)*n;j2<(j/n)*n+n;j2++)
             if(m[i][j]==m[i2][j2]&&i!=i2&&j!=j2)
                 return false;
     for(i2=0;i2<n*n;i2++)
@@ -48,6 +49,8 @@ bool verif(int i,int j)
             return false;  
     return true;     
 }
+
+
 
 void back(int i,int j,int k,int l)
 {
@@ -61,9 +64,9 @@ void back(int i,int j,int k,int l)
             if(verif(k,l))
             {
                 
-                if(l+1>=j*3+3)
+                if(l+1>=j*n+n)
                 {  
-                    if(k+1>=i*3+3)
+                    if(k+1>=i*n+n)
                     {
                         if(j+1>=n)
                         {
@@ -74,13 +77,13 @@ void back(int i,int j,int k,int l)
                                 return;
                             }
                             else
-                                back(i+1,0,i*3+3,0);
+                                back(i+1,0,i*n+n,0);
                         }
                         else
-                            back(i,j+1,i*3,j*3+3);
+                            back(i,j+1,i*n,j*n+n);
                     }
                     else
-                        back(i,j,k+1,j*3);
+                        back(i,j,k+1,j*n);
                 }
                 else
                     back(i,j,k,l+1);
@@ -90,35 +93,39 @@ void back(int i,int j,int k,int l)
     }
     else
     {
-        if(l+1>=j*3+3)
-                {  
-                    if(k+1>=i*3+3)
+        if(l+1>=j*n+n)
+        {  
+            if(k+1>=i*n+n)
+            {
+                if(j+1>=n)
+                {
+                    if(i+1>=n)
                     {
-                        if(j+1>=n)
-                        {
-                            if(i+1>=n)
-                            {
-                                return;
-                                gasit==true;
-                                
-                            }
-                            else
-                                back(i+1,0,i*3+3,0);
-                        }
-                        else
-                            back(i,j+1,i*3,j*3+3);
+                        gasit==true;
+                        afisare();
+                        return;
                     }
                     else
-                        back(i,j,k+1,j*3);
+                        back(i+1,0,i*n+n,0);
                 }
                 else
-                    back(i,j,k,l+1);
+                    back(i,j+1,i*n,j*n+n);
+            }
+            else
+                back(i,j,k+1,j*n);
+        }
+        else
+            back(i,j,k,l+1);
     }
 }
 
 int main()
 {
     citire();
+    clock_t start, end;
+    start= clock();
     back(0,0,0,0);
+    end=clock();
+    cout<<fixed<<double(end - start) / double(CLOCKS_PER_SEC);
     return 0;
 }

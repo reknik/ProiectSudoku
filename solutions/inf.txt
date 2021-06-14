@@ -1,11 +1,11 @@
 3
-A B D E I K P R W
-0 P 0 K 0 R I 0 D
-D 0 0 B 0 0 0 0 R
-0 B 0 E 0 0 P A 0
-P 0 0 0 K W A 0 B
-0 0 0 0 0 0 R K 0
-0 A D 0 0 0 0 0 0
-B 0 0 0 E 0 0 0 P
-A 0 0 0 0 0 E 0 0
-E R 0 P 0 K B 0 0
+A C I M N O T U Y
+0 U 0 O T 0 0 Y 0
+0 0 0 0 N 0 C 0 0
+0 0 0 0 0 U T N O
+N 0 0 0 C 0 Y 0 0
+A 0 0 0 0 0 0 0 N
+0 0 Y 0 I 0 0 0 T
+O M T N 0 0 0 0 0
+0 0 I 0 O 0 0 0 0
+0 N 0 0 M I 0 A 0
