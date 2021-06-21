@@ -1,10 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 using namespace std;
+
+
+ofstream h("outKillerSudoku.txt");
+ofstream g2("timeKillerSudoku.txt");
+ifstream f("inKillerSudoku.txt");
 
 //struct-ul sudoku va fi folosit pentru matricea de backtracking care va cauta solutia
 //si contine 3 campuri: value (valoarea unei anumite celule din sudoku), cage (indicele cage-ului caruia ii apartine o anumita celula)
-//si def (prescurtare de la ,,default", avand valoarea true daca celula a fost completata din citirea fisierului si false 
+//si def (prescurtare de la ,,default", avand valoarea true daca celula a fost completata din citirea fisierului si false
 //daca este o celula libera in care se vor testa valori)
 struct sudoku {
 	int value = 0, cage = 0;
@@ -25,10 +31,10 @@ int n_cages;
 
 //functia read citeste datele din fisierul de intrare
 void read() {
-	ifstream f("d:\\killerdataDavid.in");
+
 	//testarea deschiderii fisierului
 	if (!f) {
-		cout << "Nu s-a deschis fisierul!";
+		h << "Nu s-a deschis fisierul!";
 	}
 	else {
 		int i = -10, j = -10;
@@ -102,7 +108,7 @@ void afisare() {
 
 //functia compile_file este folosita pentru a scrie intr-un fisier de iesire solutia
 void compile_file() {
-	ofstream h("d:\\solutie.txt");
+
 	for (int i = 1; i <= 9; i++) {
 		for (int j = 1; j <= 9; j++) {
 			h << sud[i][j].value << " ";
@@ -176,7 +182,7 @@ bool linie_coloana_box(int line, int column, int v) {
 			}
 		}
 		i++;
-	} 
+	}
 	return aux;
 }
 
@@ -226,7 +232,7 @@ bool succesor(int i, int j) {
 
 //functia back reprezinta portiunea de backtracking a programului si porneste de la linia k si coloana k2
 void back(int k, int k2) {
-	//daca indicele liniei a ajuns la 9, indicele coloanei la 10 (s-a trecut de ultima celula din coltul jos-dreapta) - adica avem o 
+	//daca indicele liniei a ajuns la 9, indicele coloanei la 10 (s-a trecut de ultima celula din coltul jos-dreapta) - adica avem o
 	//structura de sudoku valida - si functia solutie returneaza true (toate sumele corespund) se scrie solutia intr-un fisier
 	if (k == 9 && k2 == 10 && solutie()==true) {
 		compile_file();
@@ -277,6 +283,10 @@ void back(int k, int k2) {
 int main() {
 	read();
 	reglare_curent_cu_default();
+	clock_t start, end; //Initializare cronometru
+    start= clock(); //Start cronometru
 	back(1,1);
+	end=clock(); //Stop cronometru
+    g2<<fixed<<double(end - start) / double(CLOCKS_PER_SEC); //Afisare timp executie in milisecunde
 	return 0;
 }

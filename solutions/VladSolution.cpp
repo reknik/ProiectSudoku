@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
+
 using namespace std;
 
 int matriceID[11][11], sumaGrupe[50]; //matriceID este folosita pentru a retine ID-ul fiecarei patretele de joc. cu ajutorul
@@ -10,8 +12,9 @@ int numarGrupe;                                                        //numarGr
 int vectorFrecventaInitial[50] = {0}, vectorFrecventaCurent[50] = {0}; //vectirFrecventaInitial este folosit pentru a calcula cate
 //celule avem in fiecare grupa, iar in vectorFrecventaCurent vom itera cu 1 de fiecare data cand gasim valoarea corecta dintr-o casuta
 
-ifstream f("killerdataVlad.in"); //fisierul care contine date de intrare
-ofstream g("killerSudoku.out");  //fisierul care contine date de iesire
+ifstream f("inKillerSudoku.txt"); //fisierul care contine date de intrare
+ofstream g("outKillerSudoku.txt");  //fisierul care contine date de iesire
+ofstream g2("timeKillerSudoku.txt");  //fisierul care contine timpul de executie
 
 void initializare() //functia prin care sunt citite datele de intrare
 {
@@ -224,7 +227,9 @@ void backtracking(int linie, int coloana) //functia de backtracking
 int main()
 {
     initializare();     //initializam variabilele
+    clock_t start, end; //Initializare cronometru
+    start= clock(); //Start cronometru
     backtracking(1, 1); //facem apel de prima casuta din matrice
-
+    g2<<fixed<<double(end - start) / double(CLOCKS_PER_SEC); //Afisare timp executie in milisecunde
     return 0;
 }

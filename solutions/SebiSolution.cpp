@@ -4,7 +4,8 @@
 
 using namespace std;
 char t[10][10],c[100];
-int n,poz[2][100],npoz;
+int n,poz[3][100],npoz;
+int nr_back,nr_ver;
 
 
 ifstream f("inWordoku.txt");
@@ -28,10 +29,10 @@ void afisare()  //se afiseaza tabela
         for(j=1; j<=n*n; j++)
         {
             g<<t[i][j]<<" ";
-            if(j%3==0 && j<n*n) g<<"| ";
+            
         }
         g<<endl;
-        if(i%3==0 && i<9) g<<"------+-------+------"<<endl;
+        
     }
     g<<endl;
 }
@@ -46,6 +47,7 @@ void zpoz() //functia salveaza in matricea poz pozitiile tuturor spatiilor goale
 }
 int scan(int x,int y,int z) //functia scan returneaza 1 daca o litera c[z](a z a litera din cele n litere date la inceput) poate fii scrisa in spatiul d dat de coordonatele x,y , x fiind linia si y coloana, si returneaza 0 in caz contrar
 {
+    
     int i,j;
     for(i=1; i<=n*n; i++) //se verifica daca o litera asemenea este gasita pe linia spatiului sau coloana spatiului
         if(t[x][i]==c[z] || t[i][y]==c[z]) return 0;
@@ -59,6 +61,7 @@ int scan(int x,int y,int z) //functia scan returneaza 1 daca o litera c[z](a z a
 }
 void backtracking(int x)
 {
+    
     for(int i=1; i<=9; i++) //se parcurg cele 9 litere pentru fiecare spatiu
     {
         if(scan(poz[1][x],poz[2][x],i)==1) //daca litera curenta c[i] se poate scrie in acel spatiu,este scrisa

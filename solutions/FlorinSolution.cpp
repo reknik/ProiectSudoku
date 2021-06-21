@@ -5,7 +5,7 @@
 using namespace std;
 
 char m[1000][1000],v[1000];
-int n;
+int n,nr_back,nr_ver;
 bool gasit=false;
 ifstream f("inWordoku.txt");
 ofstream g("outWordoku.txt");
@@ -44,6 +44,7 @@ void afisare()
 bool verif(int i,int j)
 {
     int i2,j2;
+    nr_ver++;
     //se verifica daca nu exista un duplicat in chenarul curent
     for(i2=(i/n)*n;i2<(i/n)*n+n;i2++)
         for(j2=(j/n)*n;j2<(j/n)*n+n;j2++)
@@ -70,8 +71,10 @@ bool verif(int i,int j)
 */
 void back(int i,int j,int k,int l)
 {
+    nr_back++;
     if(gasit==true) //daca o solutie a fost deja gasita functia se intoarce
             return;
+    
     if(m[k][l]=='0') //verificare daca casuta de la indicele curent este goala
     {
         for(int x=0;x<n*n;x++) //parcurgerea vectorului cu litere posibile
@@ -148,5 +151,7 @@ int main()
     {
         g<<"Nu exista solutie";
     }
+    cout<<nr_ver<<endl;
+    cout<<nr_back<<endl;
     return 0;
 }

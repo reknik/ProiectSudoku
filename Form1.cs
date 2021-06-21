@@ -33,7 +33,7 @@ namespace ProiectSudoku
             process.StartInfo.WorkingDirectory = "..\\..\\solutions";
             if (checkBox1.Checked)
             { 
-                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
+                process.StartInfo.FileName = "..\\..\\solutions\\SebiSolution.exe";
             }
             else
             { 
@@ -62,7 +62,7 @@ namespace ProiectSudoku
             checkBox2.Show();
             button1.Show();
             comboBox2.Show();
-            File.WriteAllText("..\\..\\solutions\\inWordoku.txt", richTextBox1.Text);
+            richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\inWordoku.txt");
             comboBox1.SelectedIndex = 0;
         }
 
@@ -89,7 +89,7 @@ namespace ProiectSudoku
                 checkBox2.Show();
                 button1.Show();
                 comboBox2.Show();
-                File.WriteAllText("..\\..\\solutions\\inWordoku.txt", richTextBox1.Text);
+                richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\inWordoku.txt");
             }
             else
             {
@@ -101,7 +101,7 @@ namespace ProiectSudoku
                 checkBox4.Show();
                 button2.Show();
                 comboBox3.Show();
-                File.WriteAllText("..\\..\\solutions\\inKillerSudoku.txt", richTextBox1.Text);
+                richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\inKillerSudoku.txt");
             }
         }
 
@@ -116,13 +116,13 @@ namespace ProiectSudoku
             Process process = new Process();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.WorkingDirectory = "..\\..\\solutions";
-            if (checkBox1.Checked)
+            if (checkBox3.Checked)
             {
-                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
+                process.StartInfo.FileName = "..\\..\\solutions\\VladSolution.exe";
             }
             else
             {
-                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
+                process.StartInfo.FileName = "..\\..\\solutions\\DavidSolution.exe";
             }
             process.StartInfo.CreateNoWindow = true;
             process.Start();
@@ -151,10 +151,13 @@ namespace ProiectSudoku
             switch (comboBox3.SelectedIndex)
             {
                 case 0:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\KillerSudoku1.txt");
                     break;
                 case 1:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\KillerSudoku2.txt");
                     break;
                 case 2:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\KillerSudoku3.txt");
                     break;
                 case 3:
                     break;
@@ -170,16 +173,16 @@ namespace ProiectSudoku
             switch (comboBox2.SelectedIndex)
             {
                 case 0:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\Wordoku1.txt");
                     break;
                 case 1:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\Wordoku2.txt");
                     break;
                 case 2:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\Wordoku3.txt");
                     break;
                 case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\Wordoku4.txt");
                     break;
             }
         }

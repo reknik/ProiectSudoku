@@ -1,0 +1,11 @@
+3
+A B I J K R T U Y
+0 U 0 0 J 0 0 0 K
+A 0 0 I 0 0 T Y J
+0 0 0 0 0 0 0 0 0
+K 0 R 0 A J 0 0 I
+I A 0 Y 0 K 0 J T
+J 0 0 R I 0 B 0 A
+0 0 0 0 0 0 0 0 0
+Y I T 0 0 A 0 0 B
+U 0 0 0 R 0 0 T 0

@@ -1,12 +1,9 @@
-C U N | O T M | A Y I 
-T O A | I N Y | C M U 
-I Y M | C A U | T N O 
-------+-------+------
-N T U | M C O | Y I A 
-A I O | Y U T | M C N 
-M C Y | A I N | U O T 
-------+-------+------
-O M T | N Y A | I U C 
-Y A I | U O C | N T M 
-U N C | T M I | O A Y 
-
+4 6 3 9 1 5 2 8 7 
+5 2 8 6 7 3 1 9 4 
+9 7 1 8 2 4 6 5 3 
+3 4 6 5 9 7 8 2 1 
+8 1 2 3 4 6 9 7 5 
+7 9 5 1 8 2 3 4 6 
+2 8 7 4 3 1 5 6 9 
+6 3 4 2 5 9 7 1 8 
+1 5 9 7 6 8 4 3 2 
