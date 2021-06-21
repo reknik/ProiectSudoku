@@ -27,25 +27,24 @@ namespace ProiectSudoku
                 MessageBox.Show("Selectati o modalitate de rezolvare");
                 return;
             }
+            File.WriteAllText("..\\..\\solutions\\inWordoku.txt", richTextBox1.Text);
+            Process process = new Process();
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.WorkingDirectory = "..\\..\\solutions";
             if (checkBox1.Checked)
-            {
-                File.WriteAllText("..\\..\\solutions\\inf.txt",richTextBox1.Text);
-                Process.Start("..\\..\\solutions\\FlorinSolution.exe");
-                richTextBox2.Text = System.IO.File.ReadAllText("..\\..\\solutions\\outf.txt");
+            { 
+                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
             }
             else
-            {
-                File.WriteAllText("..\\..\\solutions\\inf.txt", richTextBox1.Text);
-                Process process = new Process();
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.WorkingDirectory = "..\\..\\solutions";
-                process.StartInfo.FileName="..\\..\\solutions\\FlorinSolution.exe";
-                process.StartInfo.CreateNoWindow = false;
-                process.Start();
-                process.WaitForExit();
-                richTextBox2.Text = System.IO.File.ReadAllText("..\\..\\solutions\\outf.txt");
+            { 
+                process.StartInfo.FileName="..\\..\\solutions\\FlorinSolution.exe";  
             }
-            
+            process.StartInfo.CreateNoWindow = true;
+            process.Start();
+            process.WaitForExit();
+            richTextBox2.Text = System.IO.File.ReadAllText("..\\..\\solutions\\outWordoku.txt");
+            textBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\timeWordoku.txt");
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,8 +54,16 @@ namespace ProiectSudoku
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\inf.txt");
-            checkBox1.Checked = true;
+            checkBox3.Hide();
+            checkBox4.Hide();
+            button2.Hide();
+            comboBox3.Hide();
+            checkBox1.Show();
+            checkBox2.Show();
+            button1.Show();
+            comboBox2.Show();
+            File.WriteAllText("..\\..\\solutions\\inWordoku.txt", richTextBox1.Text);
+            comboBox1.SelectedIndex = 0;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -68,6 +75,113 @@ namespace ProiectSudoku
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             checkBox1.Checked = !checkBox2.Checked;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex == 0)
+            {
+                checkBox3.Hide();
+                checkBox4.Hide();
+                button2.Hide();
+                comboBox3.Hide();
+                checkBox1.Show();
+                checkBox2.Show();
+                button1.Show();
+                comboBox2.Show();
+                File.WriteAllText("..\\..\\solutions\\inWordoku.txt", richTextBox1.Text);
+            }
+            else
+            {
+                checkBox1.Hide();
+                checkBox2.Hide();
+                button1.Hide();
+                comboBox2.Hide();
+                checkBox3.Show();
+                checkBox4.Show();
+                button2.Show();
+                comboBox3.Show();
+                File.WriteAllText("..\\..\\solutions\\inKillerSudoku.txt", richTextBox1.Text);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!checkBox3.Checked && !checkBox4.Checked)
+            {
+                MessageBox.Show("Selectati o modalitate de rezolvare");
+                return;
+            }
+            File.WriteAllText("..\\..\\solutions\\inKillerSudoku.txt", richTextBox1.Text);
+            Process process = new Process();
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.WorkingDirectory = "..\\..\\solutions";
+            if (checkBox1.Checked)
+            {
+                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
+            }
+            else
+            {
+                process.StartInfo.FileName = "..\\..\\solutions\\FlorinSolution.exe";
+            }
+            process.StartInfo.CreateNoWindow = true;
+            process.Start();
+            process.WaitForExit();
+            richTextBox2.Text = System.IO.File.ReadAllText("..\\..\\solutions\\outKillerSudoku.txt");
+            textBox1.Text = System.IO.File.ReadAllText("..\\..\\solutions\\timeKillerSudoku.txt");
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox4.Checked = !checkBox3.Checked;
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox3.Checked = !checkBox4.Checked;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox3.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
         }
     }
 }
