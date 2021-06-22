@@ -50,6 +50,7 @@ namespace ProiectSudoku
             // 
             // panel1
             // 
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -78,7 +79,8 @@ namespace ProiectSudoku
             this.comboBox3.Items.AddRange(new object[] {
             "KillerSudoku 1",
             "KillerSudoku 2",
-            "KillerSudoku 3"});
+            "KillerSudoku 3",
+            "KillerSudoku 4"});
             this.comboBox3.Location = new System.Drawing.Point(33, 37);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);

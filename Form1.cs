@@ -160,11 +160,9 @@ namespace ProiectSudoku
                     richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\KillerSudoku3.txt");
                     break;
                 case 3:
+                    richTextBox1.Text = System.IO.File.ReadAllText("..\\..\\presets\\KillerSudoku4.txt");
                     break;
-                case 4:
-                    break;
-                case 5:
-                    break;
+                
             }
         }
 
